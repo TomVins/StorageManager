@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        Width="800" Height="500"
+        MinHeight="800" MinWidth="800"
+        x:Class="StorageManager.MainWindow"
+        RequestedThemeVariant="Dark"
+        Title="Storage Manager">
+    
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Color="#18181B" Offset="0.0"/>
+            <GradientStop Color="#27272A" Offset="0.5"/>
+            <GradientStop Color="#121214" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid RowDefinitions="Auto, *" Margin="20">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12" Margin="0,0,0,15">
+            <Button Content="Inventory" Click="ShowInventoryClick" 
+                    Width="130" Height="38" 
+                    FontSize="14" FontWeight="SemiBold" 
+                    CornerRadius="8"
+                    Background="#DC2626" Foreground="#FFFFFF" 
+                    BorderBrush="#EF4444" BorderThickness="1"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            
+            <Button Content="Add / Manage" Click="ShowAddClick" 
+                    Width="130" Height="38" 
+                    FontSize="14" FontWeight="SemiBold" 
+                    CornerRadius="8"
+                    Background="#27272A" Foreground="#FACC15" 
+                    BorderBrush="#FACC15" BorderThickness="1.5"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </StackPanel>
+        
+        <ContentControl x:Name="MainContentControl" Grid.Row="1"/>
+    </Grid>
+</Window>

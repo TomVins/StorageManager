@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:StorageManager.Storage"
+             mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="600"
+             x:Class="StorageManager.Views.InventoryView">
+    
+    <StackPanel Spacing="14" Margin="10">
+        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+            <TextBox x:Name="SearchTextBox" Grid.Column="0" Watermark="Search by name or ID..." FontSize="14" Padding="10" 
+                     Background="#18181B" Foreground="#F4F4F5" BorderBrush="#27272A" BorderThickness="1" CornerRadius="8"
+                     TextChanged="SearchTextBox_TextChanged"/>
+            
+            <Button x:Name="LowStockFilterButton" Grid.Column="1" Content="Low Stock (&lt; 5)" FontSize="14" FontWeight="SemiBold" Padding="12,10" 
+                    Background="#27272A" Foreground="#FACC15" BorderBrush="#3F3F46" BorderThickness="1" CornerRadius="8"
+                    Click="LowStockFilterButton_Click"/>
+        </Grid>
+        
+        <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,4">
+            <TextBlock Grid.Column="0" Text="Storage Inventory" FontSize="26" FontWeight="Bold" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Content="Remove Selected" FontSize="14" FontWeight="SemiBold" Padding="14,8" Foreground="White" Background="#DC2626" BorderBrush="#EF4444" BorderThickness="1" CornerRadius="8" Click="RemoveButton_Click" />
+        </Grid>
+        
+        <Grid ColumnDefinitions="80, 220, 110, 80" Margin="10,0,15,0">
+            <TextBlock Grid.Column="0" Text="ID" FontSize="14" FontWeight="Bold" Foreground="#A1A1AA" Margin="5,0,0,0"/>
+            <TextBlock Grid.Column="1" Text="Name" FontSize="14" FontWeight="Bold" Foreground="#A1A1AA" Margin="8,0,0,0"/>
+            <TextBlock Grid.Column="2" Text="Price" FontSize="14" FontWeight="Bold" Foreground="#A1A1AA" Margin="8,0,0,0"/>
+            <TextBlock Grid.Column="3" Text="Stock" FontSize="14" FontWeight="Bold" Foreground="#A1A1AA" HorizontalAlignment="Right"/>
+        </Grid>
+        
+        <ListBox x:Name="ItemListBox" Height="520" Background="#18181B" BorderBrush="#27272A" BorderThickness="1" CornerRadius="8">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="local:Item">
+                    <Grid ColumnDefinitions="80, 220, 110, 80" Margin="8" HorizontalAlignment="Stretch">
+                        <TextBlock Grid.Column="0" Text="{Binding ID}" FontSize="14" FontWeight="Bold" Foreground="#71717A" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="14" FontWeight="SemiBold" Foreground="#F4F4F5" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Price}" FontSize="14" Foreground="#FACC15" FontWeight="Medium"/>
+                            <TextBlock Text=" $" FontSize="14" Foreground="#FACC15" FontWeight="Medium"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="3" Text="{Binding Stock}" FontSize="14" HorizontalAlignment="Right" Foreground="#A1A1AA" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <Grid Margin="10,8,15,0">
+            <TextBlock Text="Total inventory value:" FontSize="18" FontWeight="Bold" Foreground="#FFFFFF" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="TotalValueText" Text="0 $" FontSize="18" FontWeight="Bold" Foreground="#FACC15" HorizontalAlignment="Right"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

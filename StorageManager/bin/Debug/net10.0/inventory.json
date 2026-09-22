@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 1,
+    "Name": "Motor",
+    "Price": 5000,
+    "Stock": 6
+  },
+  {
+    "ID": 2,
+    "Name": "Door",
+    "Price": 250,
+    "Stock": 12
+  },
+  {
+    "ID": 3,
+    "Name": "Wheels",
+    "Price": 80,
+    "Stock": 26
+  },
+  {
+    "ID": 4,
+    "Name": "Gearbox",
+    "Price": 45,
+    "Stock": 20
+  },
+  {
+    "ID": 5,
+    "Name": "Shifter",
+    "Price": 20,
+    "Stock": 4
+  },
+  {
+    "ID": 6,
+    "Name": "Spoiler",
+    "Price": 200,
+    "Stock": 3
+  },
+  {
+    "ID": 7,
+    "Name": "Windshield",
+    "Price": 850,
+    "Stock": 12
+  },
+  {
+    "ID": 8,
+    "Name": "Doorhandle",
+    "Price": 45,
+    "Stock": 2
+  },
+  {
+    "ID": 9,
+    "Name": "Transmission",
+    "Price": 725,
+    "Stock": 6
+  },
+  {
+    "ID": 10,
+    "Name": "Batery",
+    "Price": 1500,
+    "Stock": 4
+  }
+]
