@@ -89,3 +89,4 @@
 /Users/tomsea/RiderProjects/StorageManager/StorageManager/obj/Debug/net10.0/StorageManager.pdb
 /Users/tomsea/RiderProjects/StorageManager/StorageManager/obj/Debug/net10.0/StorageManager.genruntimeconfig.cache
 /Users/tomsea/RiderProjects/StorageManager/StorageManager/obj/Debug/net10.0/ref/StorageManager.dll
+/Users/tomsea/RiderProjects/StorageManager/StorageManager/obj/Debug/net10.0/StorageManager.sourcelink.json

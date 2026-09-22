@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using StorageManager.ManagmentService;
 using StorageManager.Storage;
+using StorageManager.Views;
 
 
 namespace StorageManager.Views;
@@ -94,5 +95,23 @@ public partial class InventoryView : UserControl
         ).ToList();
 
         ItemListBox.ItemsSource = filtered;
+    }
+
+    private async void EditMenuItem_Click(object? sender, RoutedEventArgs e)
+    {
+        var selectedItem = ItemListBox.SelectedItem as Item;
+        if (selectedItem != null)
+        {
+            var editWindow = new EditItemWindow(selectedItem);
+            var mainWindow = Avalonia.Application.Current?.ApplicationLifetime is Avalonia.Controls.ApplicationLifetimes.IClassicDesktopStyleApplicationLifetime desktop ? desktop.MainWindow : null;
+            if (mainWindow != null)
+            {
+                var result = await editWindow.ShowDialog<bool?>(mainWindow);
+                if (result == true)
+                {
+                    RefreshList();
+                }
+            }
+        }
     }
 }

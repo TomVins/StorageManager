@@ -38,32 +38,45 @@ public partial class AddItemView : UserControl
             return;
         }
 
-        
-            
         MessageTextBlock.Text = string.Empty;
 
-        Item newItem = new Item
+        // KROK 1: Pokud právě upravujeme existující položku
+        if (_editingItem != null)
         {
-            ID = id,
-            Name = name,
-            Price = price,
-            Stock = stock
-        };
-        
-        bool success = _services?.AddItem(newItem) ?? false;
+            _editingItem.ID = id;
+            _editingItem.Name = name;
+            _editingItem.Price = price;
+            _editingItem.Stock = stock;
 
-        if (!success)
-        {
-            MessageTextBlock.Foreground = Avalonia.Media.Brushes.DarkRed;
-            MessageTextBlock.Text = "Error: Item with this ID already exists!";
-            return;
+            MessageTextBlock.Foreground = Avalonia.Media.Brushes.ForestGreen;
+            MessageTextBlock.Text = "Item successfully updated!";
+            
+            _editingItem = null;
         }
-        
-        
-        MessageTextBlock.Foreground = Avalonia.Media.Brushes.ForestGreen;
-        MessageTextBlock.Text = "Item successfully added!";
-       
-        
+        else
+        {
+            
+            Item newItem = new Item
+            {
+                ID = id,
+                Name = name,
+                Price = price,
+                Stock = stock
+            };
+    
+            bool success = _services?.AddItem(newItem) ?? false;
+
+            if (!success)
+            {
+                MessageTextBlock.Foreground = Avalonia.Media.Brushes.DarkRed;
+                MessageTextBlock.Text = "Error: Item with this ID already exists!";
+                return;
+            }
+    
+            MessageTextBlock.Foreground = Avalonia.Media.Brushes.ForestGreen;
+            MessageTextBlock.Text = "Item successfully added!";
+        }
+    
         _inventoryView?.RefreshList(); 
         ClearInput();
     }
@@ -76,5 +89,19 @@ public partial class AddItemView : UserControl
         StockTextBox.Text = string.Empty;
     }
 
-    
+
+    private Item? _editingItem;
+
+    public void LoadItem(Item item)
+    {
+        _editingItem = item;
+
+        IdTextBox.Text = item.ID.ToString();
+        NameTextBox.Text = item.Name;
+        PriceTextBox.Text = item.Price.ToString();
+        StockTextBox.Text = item.Stock.ToString();
+    }
+
+
+
 }

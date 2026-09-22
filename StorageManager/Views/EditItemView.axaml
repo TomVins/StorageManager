@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="550"
+        Width="400" Height="550"
+        x:Class="StorageManager.Views.EditItemWindow"
+        Title="Edit Item">
+    
+    <StackPanel Spacing="12" Margin="15">
+        <TextBlock Text="Edit Item" FontSize="26" FontWeight="Bold" Foreground="#FFFFFF" Margin="0,0,0,5"/>
+
+        <TextBlock Text="Item ID:" FontSize="14" FontWeight="SemiBold" Foreground="#A1A1AA"/>
+        <TextBox x:Name="IdTextBox" Watermark="Enter ID..." FontSize="14" Padding="10" 
+                 Background="#18181B" Foreground="#F4F4F5" BorderBrush="#27272A" CornerRadius="8"/>
+
+        <TextBlock Text="Item Name:" FontSize="14" FontWeight="SemiBold" Foreground="#A1A1AA"/>
+        <TextBox x:Name="NameTextBox" Watermark="Enter name..." FontSize="14" Padding="10" 
+                 Background="#18181B" Foreground="#F4F4F5" BorderBrush="#27272A" CornerRadius="8"/>
+
+        <TextBlock Text="Price:" FontSize="14" FontWeight="SemiBold" Foreground="#A1A1AA"/>
+        <TextBox x:Name="PriceTextBox" Watermark="Enter price..." FontSize="14" Padding="10" 
+                 Background="#18181B" Foreground="#F4F4F5" BorderBrush="#27272A" CornerRadius="8"/>
+
+        <TextBlock Text="Stock:" FontSize="14" FontWeight="SemiBold" Foreground="#A1A1AA"/>
+        <TextBox x:Name="StockTextBox" Watermark="Enter stock quantity..." FontSize="14" Padding="10" 
+                 Background="#18181B" Foreground="#F4F4F5" BorderBrush="#27272A" CornerRadius="8"/>
+
+        <Button Content="Save Changes" Click="SaveButton_Click" 
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" 
+                FontSize="15" FontWeight="SemiBold" Padding="0,12"
+                Background="#27272A" Foreground="#FACC15" BorderBrush="#FACC15" BorderThickness="1.5" CornerRadius="8" Margin="0,8,0,0"/>
+
+        <TextBlock x:Name="MessageTextBlock" FontSize="13" FontWeight="SemiBold" TextWrapping="Wrap" Margin="0,4,0,0"/>
+    </StackPanel>
+</Window>

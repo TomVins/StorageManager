@@ -30,6 +30,11 @@
         </Grid>
         
         <ListBox x:Name="ItemListBox" Height="520" Background="#18181B" BorderBrush="#27272A" BorderThickness="1" CornerRadius="8">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Upravit" Click="EditMenuItem_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="local:Item">
                     <Grid ColumnDefinitions="80, 220, 110, 80" Margin="8" HorizontalAlignment="Stretch">
